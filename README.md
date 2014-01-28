@@ -70,7 +70,7 @@ nova is a combination of Puppet manifest and ruby code to delivery configuration
 Limitations
 -----------
 
-* Only supports libvirt and xenserver compute drivers.
+* Supports libvirt, xenserver and vmware compute drivers.
 * Tested on EL and Debian derivatives.
 
 Development
@@ -87,6 +87,15 @@ Contributors
 
 Release Notes
 -------------
+
+**3.0.0**
+
+* Major release for OpenStack Havana.
+* Removed api-paste.ini configuration.
+* Adds support for live migrations with using the libvirt Nova driver.
+* Fixed bug to ensure keystone endpoint is set before service is started.
+* Fixed nova-spiceproxy support on Ubuntu.
+* Added support for VMWareVCDriver.
 
 **2.2.0**
 
