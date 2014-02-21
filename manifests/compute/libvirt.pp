@@ -2,7 +2,8 @@
 class nova::compute::libvirt (
   $libvirt_type      = 'kvm',
   $vncserver_listen  = '127.0.0.1',
-  $migration_support = false
+  $migration_support = false,
+  $libvirt_cpu_mode  = false
 ) {
 
   include nova::params
@@ -51,5 +52,11 @@ class nova::compute::libvirt (
     'DEFAULT/libvirt_type':     value => $libvirt_type;
     'DEFAULT/connection_type':  value => 'libvirt';
     'DEFAULT/vncserver_listen': value => $vncserver_listen;
+  }
+
+  if $libvirt_cpu_mode {
+    nova_config {
+      'DEFAULT/libvirt_cpu_mode': value => $libvirt_cpu_mode;
+    }
   }
 }
